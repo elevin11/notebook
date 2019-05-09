@@ -34,6 +34,7 @@ void CommandLine::show_prompt()
 	cout << "::";
 }
 
+/*
 string CommandLine::get_command()
 {
 	command.clear();
@@ -94,6 +95,6 @@ string CommandLine::get_command()
 	}
 
 	parse.clear();
-*/
 
-}
+
+}*/
