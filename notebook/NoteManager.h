@@ -12,7 +12,7 @@ public:
 	void edit_note(string);
 	void show_notes();
 	Note * open(string);
-	void delete_note(string);
+	void remove_note(string);
 
 	NoteManager();
 	~NoteManager();

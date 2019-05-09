@@ -97,7 +97,7 @@ Note * NoteManager::open(string openLabel)
 	return openNote;
 }
 
-void NoteManager::delete_note(string deleteLabel)
+void NoteManager::remove_note(string deleteLabel)
 {
 	string path = Utility::file_extend(deleteLabel);
 	if (remove(path.c_str()) != 0)
