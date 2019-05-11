@@ -6,6 +6,11 @@ CommandLine::CommandLine()
 {
 }
 
+CommandLine::CommandLine(NoteManager * managerInput)
+{
+	manager = managerInput;
+}
+
 
 CommandLine::~CommandLine()
 {
@@ -34,67 +39,93 @@ void CommandLine::show_prompt()
 	cout << "::";
 }
 
-/*
+
 string CommandLine::get_command()
 {
 	command.clear();
 	parse.clear();
 
+	show_prompt();
 	getline(cin, command);
 	stringstream stream(command);
 	string temp;
+
 
 	while (stream >> temp)
 	{
 		parse.push_back(temp);
 	}
 
-	cout << endl << endl;
-
-/*
 	//Check for errors
 	if (parse.size() <= 0)
 	{
 		cout << "ERROR: Invalid number of arguments" << endl;
-		continue;
+		return string();
 	}
 
-	//switch on keyword
-	if (parse[0] == "create")
+	//create map from string inputs -> keyword values
+	map<string, Keyword> keywordMap = boost::assign::map_list_of("create", create)("show", show)("view", view)("edit", edit)("remove", remove)("help", help)("quit", quit);
+	auto keyIter = keywordMap.find(parse[0]);
+
+	if (keyIter == keywordMap.end())
 	{
+		cout << "ERROR: Please enter a valid keyword." << endl;
+		return string();
+	}
+
+	Keyword key = keyIter->second;
+
+	cout << endl << endl;
+
+	switch (key)
+	{
+	case CommandLine::create:
 		if (parse.size() >= 2)
 		{
-			create_note(parse[1]);
+			manager->create_note(parse[1]);
 		}
 		else
 		{
-			manager.create_note();
+			manager->create_note();
 		}
+		break;
+	case CommandLine::show:
+		manager->show_notes();
+		break;
+	case CommandLine::view:
+		if (parse.size() < 2)
+		{
+			cout << "ERROR: Please enter a label." << endl;
+			break;
+		}
+		manager->view_note(parse[1]);
+		break;
+	case CommandLine::edit:
+		if (parse.size() < 2)
+		{
+			cout << "ERROR: Please enter a label." << endl;
+			break;
+		}
+		manager->edit_note(parse[1]);
+		break;
+	case CommandLine::remove:
+		if (parse.size() < 2)
+		{
+			cout << "ERROR: Please enter a label." << endl;
+			break;
+		}
+		manager->remove_note(parse[1]);
+		break;
+	case CommandLine::help:
+		show_help();
+		break;
+	case CommandLine::quit:
+		break;
+	default:
+		break;
 	}
-	else if (parse[0] == "show")
-	{
-		manager.show_notes();
-	}
-	else if (parse.size() <= 1)	//Check if a label was entered along with a command. 
-	{
-		cout << "ERROR: Please enter a label." << endl;
-		continue;
-	}
-	else if (parse[0] == "view")
-	{
 
-		manager.view_note(parse[1]);
-	}
-	else if (parse[0] == "edit")
-	{
-		manager.edit_note(parse[1]);
-	}
-	else if (parse[0] == "remove")
-	{
-		manager.remove_note(parse[1]);
-	}
+	return string();
 
-	parse.clear();
-
-
-}*/
+	
+}

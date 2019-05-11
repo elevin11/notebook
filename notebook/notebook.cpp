@@ -17,18 +17,17 @@ using namespace std;
 
 int main()
 {
-	CommandLine shell;
 	NoteManager manager;
+	CommandLine shell(&manager);
+
 
 	shell.show_welcome();
 
 	while (true)
 	{
-
-
 		//Get user input
-		shell.show_prompt();
-
+		string command = shell.get_command();
+	}
 }
 
 
