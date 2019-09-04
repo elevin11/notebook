@@ -76,6 +76,8 @@ void NoteManager::show_notes()
 	}
 }
 
+
+
 Note * NoteManager::open(string openLabel)
 {
 	string filename = Utility::file_extend(openLabel);
