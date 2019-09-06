@@ -20,7 +20,10 @@ int main()
 	NoteManager manager;
 	CommandLine shell(&manager);
 
-	cout << "TEST TEST TEST" << endl;
+	Note blank;
+	blank.call_point();
+	cout << endl << endl;
+
 	shell.show_welcome();
 
 	while (true)

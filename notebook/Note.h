@@ -2,7 +2,12 @@
 #include<fstream>
 #include<iostream>
 #include<string>
+
+//#include "Point.h"
+
 using namespace std;
+
+class Point;
 
 class Note
 {
@@ -13,9 +18,11 @@ public:
 	void display(); //outputs current contents
 	int save(); //saves Note to file, returns 1 if sucessful
 	void set_text(string); //updates text contents
+	void call_point();
 	~Note();
 
 private:
+	Point * p;
 	string label;
 	string text;
 

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Note.h"
 #include "Utility.h"
+#include "Point.h"
 
 
 Note::Note()
@@ -44,6 +45,11 @@ void Note::set_text(string newText)
 {
 	text = newText;
 	return;
+}
+
+void Note::call_point()
+{
+	p->test();
 }
 
 int Note::save()
