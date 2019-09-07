@@ -1,11 +1,11 @@
 #pragma once
 #include "Token.h"
 
-class Term :
+class Symbol :
 	public Token
 {
 public:
-	Term();
-	~Term();
+	Symbol();
+	~Symbol();
 };
 

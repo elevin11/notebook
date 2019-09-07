@@ -153,18 +153,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Bracket.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandLine.h" />
+    <ClInclude Include="Format.h" />
     <ClInclude Include="Note.h" />
     <ClInclude Include="NoteManager.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Point.h" />
+    <ClInclude Include="Predicate.h" />
+    <ClInclude Include="Symbol.h" />
+    <ClInclude Include="Syntax.h" />
+    <ClInclude Include="SyntaxBuilder.h" />
     <ClInclude Include="Term.h" />
+    <ClInclude Include="Token.h" />
+    <ClInclude Include="Type.h" />
     <ClInclude Include="Utility.h" />
+    <ClInclude Include="Variable.h" />
+    <ClInclude Include="Word.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Bracket.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandLine.cpp" />
+    <ClCompile Include="Format.cpp" />
     <ClCompile Include="Note.cpp" />
     <ClCompile Include="notebook.cpp" />
     <ClCompile Include="NoteManager.cpp" />
@@ -175,8 +187,16 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Point.cpp" />
+    <ClCompile Include="Predicate.cpp" />
+    <ClCompile Include="Symbol.cpp" />
+    <ClCompile Include="Syntax.cpp" />
+    <ClCompile Include="SyntaxBuilder.cpp" />
     <ClCompile Include="Term.cpp" />
+    <ClCompile Include="Token.cpp" />
+    <ClCompile Include="Type.cpp" />
     <ClCompile Include="Utility.cpp" />
+    <ClCompile Include="Variable.cpp" />
+    <ClCompile Include="Word.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
