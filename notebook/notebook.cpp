@@ -20,10 +20,6 @@ int main()
 	NoteManager manager;
 	CommandLine shell(&manager);
 
-	Note blank;
-	blank.call_point();
-	cout << endl << endl;
-
 	shell.show_welcome();
 
 	while (true)

@@ -47,10 +47,6 @@ void Note::set_text(string newText)
 	return;
 }
 
-void Note::call_point()
-{
-	p->test();
-}
 
 int Note::save()
 {
