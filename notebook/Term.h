@@ -1,8 +1,8 @@
 #pragma once
-#include "Token.h"
+#include "Symbol.h"
 
 class Term :
-	public Token
+	public Symbol
 {
 public:
 	Term();
