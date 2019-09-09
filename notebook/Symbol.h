@@ -9,6 +9,7 @@ using namespace std;
 */
 
 
+//String of text that corresponds to some data object
 class Symbol
 {
 public:
@@ -22,18 +23,9 @@ private:
 };
 
 
-class Variable :
-	public Symbol
-{
-public:
-	Variable();
-	~Variable();
-	string get_type_name(); //return name of type associate to variable
-private:
-	string typeName; //change to Type later on - maybe?
-};
 
 
+//English word, or sequence of words. Has limited formatting capabilities.
 class Word :
 	public Symbol
 {
@@ -49,7 +41,7 @@ private:
 	vector<string> synonyms; //list of equivalent words
 };
 
-
+//Either left [ or right ] bracket. Encloses predicate.
 class Bracket :
 	public Symbol
 {
@@ -63,13 +55,14 @@ private:
 	bool right; //0 if left bracket [, and 1 if right bracket ]
 };
 
-
+//Marks the grammatical parts of a sentence, such as subject or function arguments.
 class Part :
 	public Symbol
 {
 public:
 	Part();
 	~Part();
+	Part(int part_in);
 	int get_part_value(); 
 private:
 	int partSignature; //change to enum later on
