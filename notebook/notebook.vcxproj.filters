@@ -45,9 +45,6 @@
     <ClInclude Include="Format.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Predicate.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Syntax.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -93,9 +90,6 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Format.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Predicate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Syntax.cpp">

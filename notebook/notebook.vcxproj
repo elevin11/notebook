@@ -160,7 +160,6 @@
     <ClInclude Include="NoteManager.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Point.h" />
-    <ClInclude Include="Predicate.h" />
     <ClInclude Include="Syntax.h" />
     <ClInclude Include="SyntaxBuilder.h" />
     <ClInclude Include="Term.h" />
@@ -182,7 +181,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="Point.cpp" />
-    <ClCompile Include="Predicate.cpp" />
     <ClCompile Include="Symbol.cpp" />
     <ClCompile Include="Syntax.cpp" />
     <ClCompile Include="SyntaxBuilder.cpp" />

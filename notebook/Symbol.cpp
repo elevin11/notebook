@@ -10,3 +10,11 @@ Symbol::Symbol()
 Symbol::~Symbol()
 {
 }
+
+Part::Part()
+{
+}
+
+Part::~Part()
+{
+}
