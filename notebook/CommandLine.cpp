@@ -29,6 +29,7 @@ void CommandLine::show_help()
 		<< "\t view <label>" << endl
 		<< "\t edit <label>" << endl
 		<< "\t remove <label>" << endl
+		<< "\t symbol <label>" << endl
 		<< "\t help" << endl
 		<< "\t quit" << endl
 		<< endl;
@@ -64,7 +65,7 @@ string CommandLine::get_command()
 	}
 
 	//create map from string inputs -> keyword values
-	map<string, Keyword> keywordMap = boost::assign::map_list_of("create", create)("show", show)("view", view)("edit", edit)("remove", remove)("help", help)("quit", quit);
+	map<string, Keyword> keywordMap = boost::assign::map_list_of("create", create)("show", show)("view", view)("edit", edit)("remove", remove)("symbol", symbol)("help", help)("quit", quit);
 	auto keyIter = keywordMap.find(parse[0]);
 
 	if (keyIter == keywordMap.end())
@@ -90,7 +91,10 @@ string CommandLine::get_command()
 		}
 		break;
 	case CommandLine::show:
+		cout << "NOTES:" << endl;
 		manager->show_notes();
+		cout << endl << "SYMBOLS: " << endl;
+		manager->show_symbols();
 		break;
 	case CommandLine::view:
 		if (parse.size() < 2)
@@ -115,6 +119,14 @@ string CommandLine::get_command()
 			break;
 		}
 		manager->remove_note(parse[1]);
+		break;
+	case CommandLine::symbol:
+		if (parse.size() < 2)
+		{
+			cout << "ERROR: Please enter a label." << endl;
+			break;
+		}
+		manager->add_symbol(parse[1]);
 		break;
 	case CommandLine::help:
 		show_help();

@@ -32,11 +32,11 @@ class Word :
 public:
 	Word();
 	~Word();
+	string get_display_cap(); //display word capitalized
+	string get_display_space(); //display word with space following it
 	string get_synonym(); //return an equivalent word
 	void add_synonym(string synonym_in); //add word to list 'synonyms'
 	void set_to_synonym(int choice); //set to one of the words in 'synonyms', user inputs entry from list
-	string get_display_cap(); //display word capitalized
-	string get_display_space(); //display word with space following it
 private:
 	vector<string> synonyms; //list of equivalent words
 };

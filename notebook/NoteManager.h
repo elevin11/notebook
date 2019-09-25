@@ -1,6 +1,9 @@
 #pragma once
 
-#include"Note.h"
+#include <vector>
+
+#include "Note.h"
+#include "Symbol.h"
 using namespace std;
 
 class NoteManager
@@ -14,7 +17,12 @@ public:
 	Note * open(string);
 	void remove_note(string);
 
+	void add_symbol(string label_in);
+	void show_symbols();
+
 	NoteManager();
 	~NoteManager();
+private:
+	vector<Symbol *> symbols; //list of symbols currently in use by manager
 };
 

@@ -112,6 +112,21 @@ void NoteManager::remove_note(string deleteLabel)
 	}
 }
 
+void NoteManager::add_symbol(string label_in)
+{
+	Symbol * new_symbol = new Symbol(label_in);
+	symbols.push_back(new_symbol);
+}
+
+void NoteManager::show_symbols()
+{
+	cout << symbols.size() << " symbols in use" << endl;
+	for (auto it = symbols.begin(); it != symbols.end(); ++it)
+	{
+		cout << (*it)->get_display() << endl;
+	}
+}
+
 NoteManager::NoteManager()
 {
 }
@@ -119,4 +134,5 @@ NoteManager::NoteManager()
 
 NoteManager::~NoteManager()
 {
+	//delete symbols[]
 }

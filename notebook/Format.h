@@ -15,15 +15,17 @@ class Format
 public:
 	Format();
 	~Format();
-	void add_word(Word word_in); //add a word symbol to list
-	void add_variable(Variable var_in);	//add a variable symbol to list
+	void add_word(Word * word_in); //add a word symbol to list
+	void add_variable(Variable * var_in); //add a variable symbol to list	
 	void add_format(Format format_in); //adds another format to list
 	Bracket * enclose(); //inserts bracket pair in first, last entries of list
 	Format substitute(Variable var_sub, Term term_sub);	//returns format after substituting a term for a variable
 private:
-	vector<Symbol> symbols;
+	vector<Symbol *> symbols;
 	vector<Variable *> variables;
 };
+
+
 
 class Predicate
 	: public Format
@@ -33,7 +35,7 @@ public:
 	~Predicate();
 	void mark_variable(Variable mark_var_in, Part mark_in); //marks a variable with given part
 	Predicate substitute(Variable &sub_var_in, Term sub_term_in); //substitues term for given variable
-	Predicate substitute(Variable &sub_var_in_pred, Predicate sub_pred_in); //substitutes predicate for given variable
+	Predicate compose(Variable &sub_var_in_pred, Predicate sub_pred_in); //substitutes predicate for given variable
 	Predicate substitute(vector<Term> input); //substitutes terms in input list for all variables of matching type
 private:
 	Type predicateType; 
