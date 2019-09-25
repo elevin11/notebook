@@ -18,6 +18,8 @@ public:
 	Term(Type type_in, string disp_in);
 	~Term();
 	Type type_check(); //returns the term's assigned type
+protected:
+	void set_type(Type type_in);
 private:
 	Type termType;  
 };
@@ -30,7 +32,7 @@ class Variable :
 {
 public:
 	Variable();
-	Variable(Part identifier_in);
+	Variable(Type type_in, string disp_in);
 	~Variable();
 private:
 	Part identifier;

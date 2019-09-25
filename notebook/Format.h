@@ -15,6 +15,7 @@ class Format
 public:
 	Format();
 	~Format();
+	void show();
 	void add_word(Word * word_in); //add a word symbol to list
 	void add_variable(Variable * var_in); //add a variable symbol to list	
 	void add_format(Format format_in); //adds another format to list

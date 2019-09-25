@@ -34,6 +34,11 @@ Part::~Part()
 {
 }
 
+Word::Word(string display_in)
+{
+	set_display(display_in);
+}
+
 string Word::get_display_space()
 {
 	string display_space = get_display() + ' ';

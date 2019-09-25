@@ -11,6 +11,14 @@ Format::~Format()
 {
 }
 
+void Format::show()
+{
+	for (auto it = symbols.begin(); it != symbols.end(); ++it)
+	{
+		cout << (*it)->get_display() << " ";
+	}
+}
+
 void Format::add_word(Word * word_in)
 {
 	symbols.push_back(word_in);

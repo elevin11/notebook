@@ -31,6 +31,7 @@ class Word :
 {
 public:
 	Word();
+	Word(string display_in);
 	~Word();
 	string get_display_cap(); //display word capitalized
 	string get_display_space(); //display word with space following it

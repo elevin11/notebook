@@ -13,7 +13,7 @@ public:
 	Type();
 	~Type();
 	Type(string typeName_in);
-	bool operator = (Type const &comp); //check if two types are equal
+	bool operator == (Type const &comp); //check if two types are equal
 private:
 	int degree;
 	string typeName;

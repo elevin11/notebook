@@ -8,13 +8,14 @@
 #include<vector>
 
 #include "CommandLine.h"
+#include "Format.h"
 #include "Note.h"
 #include "NoteManager.h"
 #include "Utility.h"
 using namespace std;
 
 
-
+/*
 int main()
 {
 	NoteManager manager;
@@ -27,8 +28,25 @@ int main()
 		//Get user input
 		string command = shell.get_command();
 	}
-}
 
+	return 0;
+}
+*/
+
+int main()
+{
+	cout << "PREDICATE SYSTEM TEST" << endl;
+	Format form;
+	Word * word1 = new Word("Test");
+	Type object("OBJ");
+	Variable * var1 = new Variable(object, "var1");
+	form.add_word(word1);
+	form.add_variable(var1);
+	form.enclose();
+	form.show();
+
+	return 0;
+}
 
 
 
