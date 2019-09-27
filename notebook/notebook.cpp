@@ -11,6 +11,8 @@
 #include "Format.h"
 #include "Note.h"
 #include "NoteManager.h"
+#include "Predicate.h"
+#include "Term.h"
 #include "Utility.h"
 using namespace std;
 
@@ -36,15 +38,64 @@ int main()
 int main()
 {
 	cout << "PREDICATE SYSTEM TEST" << endl;
-	Format form;
-	Word * word1 = new Word("Test");
-	Type object("OBJ");
-	Variable * var1 = new Variable(object, "var1");
-	form.add_word(word1);
-	form.add_variable(var1);
-	form.enclose();
-	form.show();
 
+	Type object("OBJ");
+	Type adjective("ADJ");
+	Variable * X = new Variable(object, "X");
+	Variable * a = new Variable(adjective, "a");
+	Word * word1 = new Word("Test");
+	Word * word2 = new Word("Chicken");
+
+
+	Predicate * pred = new Predicate("modifies", a, X);
+	pred->show();
+
+	Term * abel = new Term(adjective, "abelian");
+	Term * grp = new Term(object, "group");
+	Point dummy = pred->apply(abel, grp);
+
+
+	/*
+		form.add_word(word1);
+		form.add_variable(var1);
+		form.enclose();
+		form.show();
+		Term blah(object, "blah");
+
+		form.substitute(var1, blah);
+		form.show();
+		/*
+		Format form;
+		Word * word1 = new Word("Test");
+		Word * word2 = new Word("Chicken");
+
+		form.add_word(word1);
+		form.add_word(word2);
+
+		form.show();
+
+		Type object("OBJ");
+		Variable * X = new Variable(object, "X");
+	
+		form.add_variable(X);
+		form.show();
+
+		Type adjective("ADJ");
+		Variable * a = new Variable(adjective, "a");
+
+		form.add_variable(a);
+		form.show();
+		form.enclose();
+		form.show();
+
+		Word * word3 = new Word("Biscuits");
+		form.add_word(word3);
+		form.show();
+	
+		form.enclose();
+		form.show();
+
+		*/
 	return 0;
 }
 

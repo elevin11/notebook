@@ -3,7 +3,6 @@
 
 #include "Symbol.h"
 #include "Term.h"
-
 using namespace std;
 
 /*	String of symbols representing data.
@@ -14,20 +13,21 @@ class Format
 {
 public:
 	Format();
+	Format(const Format&);
 	~Format();
 	void show();
 	void add_word(Word * word_in); //add a word symbol to list
 	void add_variable(Variable * var_in); //add a variable symbol to list	
-	void add_format(Format format_in); //adds another format to list
+//	void add_format(Format format_in); //adds another format to list
 	Bracket * enclose(); //inserts bracket pair in first, last entries of list
-	Format substitute(Variable var_sub, Term term_sub);	//returns format after substituting a term for a variable
+	void substitute(Variable * var_sub, Term * term_sub);	//returns format after substituting a term for a variable
 private:
 	vector<Symbol *> symbols;
 	vector<Variable *> variables;
 };
 
 
-
+/*
 class Predicate
 	: public Format
 {
@@ -43,3 +43,5 @@ private:
 	vector<Type> typeSig;
 	bool typeSigCheck(vector<Term> inputCheck); //checks if given list of terms matches type with predicate's signature 
 };
+
+*/

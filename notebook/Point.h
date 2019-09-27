@@ -20,13 +20,13 @@ class Point
 public:
 	Point();
 	~Point();
-	Point(Predicate pred_in, vector<Concept *> concepts_in, vector<Name *> names_in, vector<Point *> dependents_in);	//constructs point with given inputs as data members if concept/name/point types match corresponding types in given predicate
+//	Point(Predicate pred_in, vector<Concept *> concepts_in, vector<Name *> names_in, vector<Point *> dependents_in);	//constructs point with given inputs as data members if concept/name/point types match corresponding types in given predicate
 private:
 	vector<Variable *> variables; //should always be empty
 	vector<Concept *> concepts;
 	vector<Name *> names;
 	vector<Point *> dependents; //list of dependent points
 	pair<const Term *, Part> sentenceParts; //assignment of sentence part to each term
-	void assign_parts(Predicate pred_in_parts); //fills sentenceParts according to given predicate
+//	void assign_parts(Predicate pred_in_parts); //fills sentenceParts according to given predicate
 };
 

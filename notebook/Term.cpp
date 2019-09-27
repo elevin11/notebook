@@ -6,6 +6,12 @@ Term::Term()
 {
 }
 
+Term::Term(Type type_in, string disp_in)
+{
+	termType = type_in;
+	set_display(disp_in);
+}
+
 
 Term::~Term()
 {

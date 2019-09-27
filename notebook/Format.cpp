@@ -6,6 +6,10 @@ Format::Format()
 {
 }
 
+Format::Format(const Format &)
+{
+}
+
 
 Format::~Format()
 {
@@ -17,6 +21,13 @@ void Format::show()
 	{
 		cout << (*it)->get_display() << " ";
 	}
+	cout << endl;
+	cout << "Variables: ";
+	for (auto it = variables.begin(); it != variables.end(); ++it)
+	{
+		cout << (*it)->get_display() << " ";
+	}
+	cout << endl << endl;
 }
 
 void Format::add_word(Word * word_in)
@@ -37,4 +48,26 @@ Bracket * Format::enclose()
 	symbols.insert(symbols.begin(), left);
 	symbols.push_back(right);
 	return left;
+}
+
+//substitutes in-place
+void Format::substitute(Variable * var_sub, Term * term_sub)
+{
+	for (auto it = symbols.begin(); it != symbols.end(); ++it)
+	{
+		if ((*it) == var_sub)
+		{
+			for (auto v = variables.begin(); v != variables.end(); ++v)
+			{
+				if ((*v) == var_sub)
+				{
+					//cout << (*v)->get_display();
+					variables.erase(v);
+					break;
+				}
+			}
+
+			(*it) = term_sub;
+		}
+	}
 }
