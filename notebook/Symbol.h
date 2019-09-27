@@ -16,7 +16,8 @@ public:
 	Symbol();
 	Symbol(string display_in); //construct with given string as output text
 	~Symbol();
-	string get_display(); //get output text
+	bool operator == (Symbol const &comp);
+	string get_display() const; //get output text
 	void set_display(string display_new); //change output text
 private:
 	string display;	//text representation to display in console

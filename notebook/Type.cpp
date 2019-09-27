@@ -17,3 +17,12 @@ Type::Type(string typeName_in)
 	typeName = typeName_in;
 	parent = nullptr;
 }
+
+bool Type::operator==(Type const & comp)
+{
+	if (comp.typeName == typeName)
+	{
+		return true;
+	}
+	return false;
+}

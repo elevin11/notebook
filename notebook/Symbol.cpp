@@ -16,7 +16,16 @@ Symbol::~Symbol()
 {
 }
 
-string Symbol::get_display()
+bool Symbol::operator==(Symbol const & comp)
+{
+	if (comp.get_display() == get_display())
+	{
+		return true;
+	}
+	return false;
+}
+
+string Symbol::get_display() const
 {
 	return display;
 }
@@ -38,6 +47,7 @@ Word::Word(string display_in)
 {
 	set_display(display_in);
 }
+
 
 string Word::get_display_space()
 {

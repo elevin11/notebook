@@ -53,7 +53,9 @@ int main()
 	Term * abel = new Term(adjective, "abelian");
 	Term * grp = new Term(object, "group");
 	Point dummy = pred->apply(abel, grp);
-
+	dummy.show();
+	Point second = pred->apply(&dummy, grp);
+	second.show();
 
 	/*
 		form.add_word(word1);

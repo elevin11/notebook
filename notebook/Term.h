@@ -16,8 +16,9 @@ class Term :
 public:
 	Term();	
 	Term(Type type_in, string disp_in);
+	bool operator == (Term const &comp);
 	~Term();
-	Type type_check(); //returns the term's assigned type
+	Type get_type() const; //returns the term's assigned type
 protected:
 	void set_type(Type type_in);
 private:

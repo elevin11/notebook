@@ -2,7 +2,7 @@
 #include<utility>
 
 #include "Format.h"
-//#include "Symbol.h"
+#include "Symbol.h"
 #include "Term.h"
 
 using namespace std;
@@ -15,18 +15,24 @@ using namespace std;
 */
 
 class Point
-	: public Format, public Term
+	: public Term
 {
 public:
 	Point();
 	~Point();
+	Point(Term * source_in, Term * target_in, Word * link_in, Format form_in);
+	void show();
 //	Point(Predicate pred_in, vector<Concept *> concepts_in, vector<Name *> names_in, vector<Point *> dependents_in);	//constructs point with given inputs as data members if concept/name/point types match corresponding types in given predicate
 private:
-	vector<Variable *> variables; //should always be empty
+//	vector<Variable *> variables; //should always be empty
+	Term * source;
+	Term * target;
+	Word * link;
+	Format outputForm;
 	vector<Concept *> concepts;
 	vector<Name *> names;
 	vector<Point *> dependents; //list of dependent points
-	pair<const Term *, Part> sentenceParts; //assignment of sentence part to each term
+//	pair<const Term *, Part> sentenceParts; //assignment of sentence part to each term
 //	void assign_parts(Predicate pred_in_parts); //fills sentenceParts according to given predicate
 };
 

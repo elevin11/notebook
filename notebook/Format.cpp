@@ -6,8 +6,17 @@ Format::Format()
 {
 }
 
-Format::Format(const Format &)
+Format::Format(const Format &other)
 {
+	for (auto it = other.symbols.begin(); it != other.symbols.end(); ++it)
+	{
+		symbols.push_back(new Symbol((*it)->get_display()));
+	}
+
+	for (auto it = other.variables.begin(); it != other.variables.end(); ++it)
+	{
+		variables.push_back(new Variable((*it)->get_type(), (*it)->get_display())); //push back copy of variables
+	}
 }
 
 
@@ -55,11 +64,11 @@ void Format::substitute(Variable * var_sub, Term * term_sub)
 {
 	for (auto it = symbols.begin(); it != symbols.end(); ++it)
 	{
-		if ((*it) == var_sub)
+		if (*(*it) == *var_sub)
 		{
 			for (auto v = variables.begin(); v != variables.end(); ++v)
 			{
-				if ((*v) == var_sub)
+				if (*(*v) == *var_sub)
 				{
 					//cout << (*v)->get_display();
 					variables.erase(v);
@@ -67,7 +76,7 @@ void Format::substitute(Variable * var_sub, Term * term_sub)
 				}
 			}
 
-			(*it) = term_sub;
+			*(*it) = *term_sub;
 		}
 	}
 }
