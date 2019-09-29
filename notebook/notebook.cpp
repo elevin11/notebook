@@ -41,21 +41,27 @@ int main()
 
 	Type object("OBJ");
 	Type adjective("ADJ");
-	Variable * X = new Variable(object, "X");
-	Variable * a = new Variable(adjective, "a");
-	Word * word1 = new Word("Test");
-	Word * word2 = new Word("Chicken");
+	Variable X(object, "X");
+	Variable a(adjective, "a");
+	Word word1("Test");
+	Word word2("Chicken");
 
 
-	Predicate * pred = new Predicate("modifies", a, X);
-	pred->show();
+	Predicate pred("modifies", a, X);
+	pred.show();
 
-	Term * abel = new Term(adjective, "abelian");
-	Term * grp = new Term(object, "group");
-	Point dummy = pred->apply(abel, grp);
-	Point second = pred->apply(&dummy, grp);
+	Term abel(adjective, "abelian");
+	Term grp(object, "group");
+	Point dummy = pred.apply(abel, grp);
+	Point second = pred.apply(dummy, grp);
 	second.show();
-	
+
+	Term chicken(adjective, "chicken");
+	Term biscuit(object, "biscuit");
+	Predicate madeFrom("made from", a, X);
+	madeFrom.show();
+	Point chickenBiskeys = madeFrom.apply(chicken, biscuit);
+	chickenBiskeys.show();
 
 	/*
 		form.add_word(word1);

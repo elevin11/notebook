@@ -21,15 +21,15 @@ class Point
 public:
 	Point();
 	~Point();
-	Point(Term * source_in, Term * target_in, Word * link_in, Format form_in);
+	Point(Term &source_in, Term &target_in, Word &link_in, Format &form_in);
 	void show();
 	void info();
 //	Point(Predicate pred_in, vector<Concept *> concepts_in, vector<Name *> names_in, vector<Point *> dependents_in);	//constructs point with given inputs as data members if concept/name/point types match corresponding types in given predicate
 private:
 //	vector<Variable *> variables; //should always be empty
-	Term * source;
-	Term * target;
-	Word * link;
+	Term source;
+	Term target;
+	Word link;
 	Format outputForm;
 	vector<Concept *> concepts;
 	vector<Name *> names;

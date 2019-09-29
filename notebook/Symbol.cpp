@@ -43,9 +43,17 @@ Part::~Part()
 {
 }
 
+Word::Word()
+{
+}
+
 Word::Word(string display_in)
 {
 	set_display(display_in);
+}
+
+Word::~Word()
+{
 }
 
 
@@ -71,5 +79,9 @@ Bracket::Bracket(char leftOrRight_in)
 }
 
 Bracket::Bracket(Bracket * twin_in)
+{
+}
+
+Bracket::~Bracket()
 {
 }

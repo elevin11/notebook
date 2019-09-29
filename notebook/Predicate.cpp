@@ -6,18 +6,17 @@ Predicate::Predicate()
 {
 }
 
-Predicate::Predicate(string link_in, Variable * source_in, Variable * target_in)
+Predicate::Predicate(string link_in, Variable &source_in, Variable &target_in)
 {
 	
 	sourceVar = source_in;
 	targetVar = target_in;
-	link = new Word(link_in);
+	Word link(link_in);
 
 	
-
-	Word * colon = new Word(":");
-	Word * arrow = new Word("->");
-
+	Word colon(":");
+	Word arrow("->");
+	
 	outputForm.add_word(link);
 	outputForm.add_word(colon);
 	outputForm.add_variable(sourceVar);
@@ -26,11 +25,11 @@ Predicate::Predicate(string link_in, Variable * source_in, Variable * target_in)
 	outputForm.enclose();
 }
 
-Predicate::Predicate(string link_in, Variable * source_in, Variable * target_in, Format form_in)
+Predicate::Predicate(string link_in, Variable &source_in, Variable &target_in, Format &form_in)
 {
 	sourceVar = source_in;
 	targetVar = target_in;
-	link = new Word(link_in);
+	Word link(link_in);
 	outputForm = form_in;
 }
 
@@ -39,7 +38,7 @@ void Predicate::show()
 	outputForm.show();
 }
 
-Point Predicate::apply(Term * source_term, Term * target_term)
+Point Predicate::apply(Term &source_term, Term &target_term)
 {
 	Format newForm(outputForm);
 	newForm.substitute(sourceVar, source_term);

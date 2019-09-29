@@ -11,7 +11,7 @@ Point::~Point()
 {
 }
 
-Point::Point(Term * source_in, Term * target_in, Word * link_in, Format form_in)
+Point::Point(Term  &source_in, Term &target_in, Word &link_in, Format &form_in)
 {
 	source = source_in;
 	target = target_in;
@@ -29,7 +29,9 @@ void Point::show()
 
 void Point::info()
 {
-	cout << source->get_display() << endl;
-	cout << source << endl;
-	cout << target->get_display() << endl;
+	cout << &source << endl;
+	cout << source.get_display() << endl;
+
+	cout << &target << endl;
+	cout << target.get_display() << endl;
 }

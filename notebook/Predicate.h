@@ -11,15 +11,15 @@ class Predicate
 {
 public:
 	Predicate();
-	Predicate(string link_in, Variable * source_in, Variable * target_in);
-	Predicate(string link_in, Variable * source_in, Variable * target_in,  Format form_in);
+	Predicate(string link_in, Variable &source_in, Variable &target_in);
+	Predicate(string link_in, Variable &source_in, Variable &target_in,  Format &form_in);
 	void show();
-	Point apply(Term * source_term, Term * target_term);
+	Point apply(Term &source_term, Term &target_term);
 	~Predicate();
 private:
-	Word * link;
-	Variable * sourceVar;
-	Variable * targetVar;
+	Word link;
+	Variable sourceVar;
+	Variable targetVar;
 	Format outputForm;
 };
 

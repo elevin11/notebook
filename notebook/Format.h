@@ -17,14 +17,14 @@ public:
 	~Format();
 	string get_string();
 	void show();
-	void add_word(Word * word_in); //add a word symbol to list
-	void add_variable(Variable * var_in); //add a variable symbol to list	
+	void add_word(Word & word_in); //add a word symbol to list
+	void add_variable(Variable & var_in); //add a variable symbol to list	
 //	void add_format(Format format_in); //adds another format to list
-	Bracket * enclose(); //inserts bracket pair in first, last entries of list
-	void substitute(Variable * var_sub, Term * term_sub);	//returns format after substituting a term for a variable
+	void enclose(); //inserts bracket pair in first, last entries of list
+	void substitute(Variable & var_sub, Term & term_sub);	//returns format after substituting a term for a variable
 private:
-	vector<Symbol *> symbols;
-	vector<Variable *> variables;
+	vector<Symbol> symbols;
+	vector<Variable> variables;
 };
 
 
