@@ -37,6 +37,7 @@ void CommandLine::show_help()
 		<< "\t edit <label>" << endl
 		<< "\t remove <label>" << endl
 		<< "\t symbol <label>" << endl
+		<< "\t term <type> <label>" << endl
 		<< "\t help" << endl
 		<< "\t quit" << endl
 		<< endl;
@@ -72,7 +73,7 @@ string CommandLine::get_command()
 	}
 
 	//create map from string inputs -> keyword values
-	map<string, Keyword> keywordMap = boost::assign::map_list_of("create", create)("show", show)("view", view)("edit", edit)("remove", remove)("symbol", symbol)("help", help)("quit", quit);
+	map<string, Keyword> keywordMap = boost::assign::map_list_of("create", create)("show", show)("view", view)("edit", edit)("remove", remove)("symbol", symbol)("term", term)("help", help)("quit", quit);
 	auto keyIter = keywordMap.find(parse[0]);
 
 	if (keyIter == keywordMap.end())
@@ -135,6 +136,12 @@ string CommandLine::get_command()
 		}
 		symbolMan->create(parse[1]);
 		break;
+	case CommandLine::term:
+		if (parse.size() < 3)
+		{
+			cout << "ERROR: Please enter a type and a label." << endl;
+		}
+		symbolMan->createTerm(parse[1], parse[2]);
 	case CommandLine::help:
 		show_help();
 		break;

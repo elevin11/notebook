@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 #include <string>
 #include <vector>
 
@@ -14,6 +15,7 @@ public:
 	~Type();
 	Type(string typeName_in);
 	bool operator == (Type const &comp); //check if two types are equal
+	string get_string();
 private:
 	int degree;
 	string typeName;

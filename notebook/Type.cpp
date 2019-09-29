@@ -26,3 +26,8 @@ bool Type::operator==(Type const & comp)
 	}
 	return false;
 }
+
+string Type::get_string()
+{
+	return typeName;
+}

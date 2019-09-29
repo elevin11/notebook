@@ -24,7 +24,7 @@ public:
 	string get_command(); 
 							//	Command get_command(string); //converts user input string to a Command object
 private:
-	enum Keyword{ create, show, view, edit, remove, symbol, help, quit};
+	enum Keyword{ create, show, view, edit, remove, symbol, term, help, quit};
 	string command;
 	vector<string> parse;
 	NoteManager * noteMan;
