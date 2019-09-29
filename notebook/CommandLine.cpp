@@ -6,10 +6,17 @@ CommandLine::CommandLine()
 {
 }
 
-CommandLine::CommandLine(NoteManager * managerInput)
+CommandLine::CommandLine(NoteManager * noteManInput)
 {
-	manager = managerInput;
+	noteMan = noteManInput;
 }
+
+CommandLine::CommandLine(NoteManager * noteManInput, SymbolManager * symManInput)
+{
+	noteMan = noteManInput;
+	symbolMan = symManInput;
+}
+
 
 
 CommandLine::~CommandLine()
@@ -83,18 +90,18 @@ string CommandLine::get_command()
 	case CommandLine::create:
 		if (parse.size() >= 2)
 		{
-			manager->create_note(parse[1]);
+			noteMan->create(parse[1]);
 		}
 		else
 		{
-			manager->create_note();
+			noteMan->create();
 		}
 		break;
 	case CommandLine::show:
 		cout << "NOTES:" << endl;
-		manager->show_notes();
+		noteMan->show();
 		cout << endl << "SYMBOLS: " << endl;
-		manager->show_symbols();
+		symbolMan->show();
 		break;
 	case CommandLine::view:
 		if (parse.size() < 2)
@@ -102,7 +109,7 @@ string CommandLine::get_command()
 			cout << "ERROR: Please enter a label." << endl;
 			break;
 		}
-		manager->view_note(parse[1]);
+		noteMan->view(parse[1]);
 		break;
 	case CommandLine::edit:
 		if (parse.size() < 2)
@@ -110,7 +117,7 @@ string CommandLine::get_command()
 			cout << "ERROR: Please enter a label." << endl;
 			break;
 		}
-		manager->edit_note(parse[1]);
+		noteMan->edit(parse[1]);
 		break;
 	case CommandLine::remove:
 		if (parse.size() < 2)
@@ -118,7 +125,7 @@ string CommandLine::get_command()
 			cout << "ERROR: Please enter a label." << endl;
 			break;
 		}
-		manager->remove_note(parse[1]);
+		noteMan->destroy(parse[1]);
 		break;
 	case CommandLine::symbol:
 		if (parse.size() < 2)
@@ -126,7 +133,7 @@ string CommandLine::get_command()
 			cout << "ERROR: Please enter a label." << endl;
 			break;
 		}
-		manager->add_symbol(parse[1]);
+		symbolMan->create(parse[1]);
 		break;
 	case CommandLine::help:
 		show_help();

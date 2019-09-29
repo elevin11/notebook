@@ -7,6 +7,7 @@
 #include<vector>
 #include "Command.h"
 #include "NoteManager.h"
+#include "SymbolManager.h"
 using namespace std;
 
 
@@ -15,6 +16,7 @@ class CommandLine
 public:
 	CommandLine();
 	CommandLine(NoteManager *); //Attach CommandLine to given NoteManager
+	CommandLine(NoteManager * noteManInput, SymbolManager * symManInput);
 	~CommandLine();
 	void show_welcome();	//display welcome message
 	void show_help();		//display help message
@@ -25,6 +27,7 @@ private:
 	enum Keyword{ create, show, view, edit, remove, symbol, help, quit};
 	string command;
 	vector<string> parse;
-	NoteManager * manager;
+	NoteManager * noteMan;
+	SymbolManager * symbolMan;
 };
 

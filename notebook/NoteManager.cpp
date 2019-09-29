@@ -7,7 +7,7 @@
 
 
 
-void NoteManager::create_note()
+void NoteManager::create()
 {
 	string newLabel;
 	string newText;
@@ -22,7 +22,7 @@ void NoteManager::create_note()
 	newNote->save();
 }
 
-void NoteManager::create_note(string newLabel)
+void NoteManager::create(string newLabel)
 {
 	string new_text;
 	cout << "Enter text for Note:" << endl;
@@ -33,7 +33,7 @@ void NoteManager::create_note(string newLabel)
 }
 
 
-void NoteManager::view_note(string viewLabel)
+void NoteManager::view(string viewLabel)
 {
 
 
@@ -50,7 +50,7 @@ void NoteManager::view_note(string viewLabel)
 	delete viewNote;
 }
 
-void NoteManager::edit_note(string editLabel)
+void NoteManager::edit(string editLabel)
 {
 	Note * editNote = open(editLabel);
 	string newText;
@@ -62,7 +62,7 @@ void NoteManager::edit_note(string editLabel)
 	editNote->save();
 }
 
-void NoteManager::show_notes()
+void NoteManager::show()
 {
 	string dir = Utility::path();
 	string noteLabel;
@@ -99,7 +99,7 @@ Note * NoteManager::open(string openLabel)
 	return openNote;
 }
 
-void NoteManager::remove_note(string deleteLabel)
+void NoteManager::destroy(string deleteLabel)
 {
 	string path = Utility::file_extend(deleteLabel);
 	if (remove(path.c_str()) != 0)
@@ -112,6 +112,7 @@ void NoteManager::remove_note(string deleteLabel)
 	}
 }
 
+/*
 void NoteManager::add_symbol(string label_in)
 {
 	Symbol * new_symbol = new Symbol(label_in);
@@ -126,6 +127,7 @@ void NoteManager::show_symbols()
 		cout << (*it)->get_display() << endl;
 	}
 }
+*/
 
 NoteManager::NoteManager()
 {

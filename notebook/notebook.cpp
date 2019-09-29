@@ -17,11 +17,12 @@
 using namespace std;
 
 
-/*
+
 int main()
 {
-	NoteManager manager;
-	CommandLine shell(&manager);
+	NoteManager noteMan;
+	SymbolManager symMan;
+	CommandLine shell(&noteMan, &symMan);
 
 	shell.show_welcome();
 
@@ -33,8 +34,8 @@ int main()
 
 	return 0;
 }
-*/
 
+/*
 int main()
 {
 	cout << "PREDICATE SYSTEM TEST" << endl;
@@ -103,10 +104,10 @@ int main()
 		form.enclose();
 		form.show();
 
-		*/
+		
 	return 0;
 }
-
+*/
 
 
 // Run program: Ctrl + F5 or Debug > Start Without Debugging menu

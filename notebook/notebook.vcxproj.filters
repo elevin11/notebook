@@ -57,6 +57,12 @@
     <ClInclude Include="Predicate.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SymbolManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -102,6 +108,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Predicate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SymbolManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

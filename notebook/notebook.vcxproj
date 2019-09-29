@@ -156,11 +156,13 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandLine.h" />
     <ClInclude Include="Format.h" />
+    <ClInclude Include="Manager.h" />
     <ClInclude Include="Note.h" />
     <ClInclude Include="NoteManager.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Predicate.h" />
+    <ClInclude Include="SymbolManager.h" />
     <ClInclude Include="Syntax.h" />
     <ClInclude Include="SyntaxBuilder.h" />
     <ClInclude Include="Term.h" />
@@ -172,6 +174,7 @@
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandLine.cpp" />
     <ClCompile Include="Format.cpp" />
+    <ClCompile Include="Manager.cpp" />
     <ClCompile Include="Note.cpp" />
     <ClCompile Include="notebook.cpp" />
     <ClCompile Include="NoteManager.cpp" />
@@ -184,6 +187,7 @@
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Predicate.cpp" />
     <ClCompile Include="Symbol.cpp" />
+    <ClCompile Include="SymbolManager.cpp" />
     <ClCompile Include="Syntax.cpp" />
     <ClCompile Include="SyntaxBuilder.cpp" />
     <ClCompile Include="Term.cpp" />
