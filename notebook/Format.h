@@ -15,6 +15,7 @@ public:
 	Format();
 	Format(const Format&);
 	~Format();
+	string get_string();
 	void show();
 	void add_word(Word * word_in); //add a word symbol to list
 	void add_variable(Variable * var_in); //add a variable symbol to list	

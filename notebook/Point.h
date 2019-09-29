@@ -1,5 +1,6 @@
 #pragma once
 #include<utility>
+#include <iostream>
 
 #include "Format.h"
 #include "Symbol.h"
@@ -22,6 +23,7 @@ public:
 	~Point();
 	Point(Term * source_in, Term * target_in, Word * link_in, Format form_in);
 	void show();
+	void info();
 //	Point(Predicate pred_in, vector<Concept *> concepts_in, vector<Name *> names_in, vector<Point *> dependents_in);	//constructs point with given inputs as data members if concept/name/point types match corresponding types in given predicate
 private:
 //	vector<Variable *> variables; //should always be empty

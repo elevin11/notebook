@@ -46,11 +46,6 @@ Point Predicate::apply(Term * source_term, Term * target_term)
 	newForm.substitute(target_var, target_term);
 
 	Point newPoint(source_term, target_term, link, newForm);
-/*	cout << "output_form: ";
-	output_form.show();
-	cout << "newForm: ";
-	newForm.show();
-	*/
 	return newPoint;
 }
 

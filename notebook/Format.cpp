@@ -24,6 +24,17 @@ Format::~Format()
 {
 }
 
+string Format::get_string()
+{
+	string disp;
+	for (auto it = symbols.begin(); it != symbols.end(); ++it)
+	{
+		disp.append((*it)->get_display());
+		disp.append(" ");
+	}
+	return disp;
+}
+
 void Format::show()
 {
 	for (auto it = symbols.begin(); it != symbols.end(); ++it)
@@ -31,12 +42,13 @@ void Format::show()
 		cout << (*it)->get_display() << " ";
 	}
 	cout << endl;
-	cout << "Variables: ";
+/*	cout << "Variables: ";
 	for (auto it = variables.begin(); it != variables.end(); ++it)
 	{
 		cout << (*it)->get_display() << " ";
 	}
 	cout << endl << endl;
+*/
 }
 
 void Format::add_word(Word * word_in)
@@ -59,7 +71,7 @@ Bracket * Format::enclose()
 	return left;
 }
 
-//substitutes in-place
+
 void Format::substitute(Variable * var_sub, Term * term_sub)
 {
 	for (auto it = symbols.begin(); it != symbols.end(); ++it)
@@ -76,6 +88,7 @@ void Format::substitute(Variable * var_sub, Term * term_sub)
 				}
 			}
 
+			//cout << "sub " << term_sub->get_display() << " for " << var_sub->get_display() << endl;
 			*(*it) = *term_sub;
 		}
 	}
