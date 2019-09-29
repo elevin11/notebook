@@ -11,11 +11,14 @@ CommandLine::CommandLine(NoteManager * noteManInput)
 	noteMan = noteManInput;
 }
 
-CommandLine::CommandLine(NoteManager * noteManInput, SymbolManager * symManInput)
+CommandLine::CommandLine(NoteManager * noteManInput, SymbolManager * symManInput, PredicateManager * predManInput)
 {
 	noteMan = noteManInput;
 	symbolMan = symManInput;
+	predMan = predManInput;
 }
+
+
 
 
 
@@ -73,7 +76,7 @@ string CommandLine::get_command()
 	}
 
 	//create map from string inputs -> keyword values
-	map<string, Keyword> keywordMap = boost::assign::map_list_of("create", create)("show", show)("view", view)("edit", edit)("remove", remove)("symbol", symbol)("term", term)("help", help)("quit", quit);
+	map<string, Keyword> keywordMap = boost::assign::map_list_of("create", create)("show", show)("view", view)("edit", edit)("remove", remove)("symbol", symbol)("term", term)("predicate", predicate)("help", help)("quit", quit);
 	auto keyIter = keywordMap.find(parse[0]);
 
 	if (keyIter == keywordMap.end())
@@ -103,6 +106,8 @@ string CommandLine::get_command()
 		noteMan->show();
 		cout << endl << "SYMBOLS: " << endl;
 		symbolMan->show();
+		cout << endl << "PREDICATES:" << endl;
+		predMan->show();
 		break;
 	case CommandLine::view:
 		if (parse.size() < 2)
@@ -142,6 +147,32 @@ string CommandLine::get_command()
 			cout << "ERROR: Please enter a type and a label." << endl;
 		}
 		symbolMan->createTerm(parse[1], parse[2]);
+		break;
+	case CommandLine::predicate:
+		if (parse.size() < 2)
+		{
+			cout << "ERROR: Please enter a predicate name." << endl;
+		}
+		if (parse.size() == 2) //only link name is given
+		{
+			predMan->create(parse[1]);
+		}
+		else if (parse.size() == 3) //link name and single type is given
+		{
+			Type varType(parse[2]);
+			symbolMan->createType(parse[2]);
+			predMan->create(parse[1], varType);
+
+		}
+		else //link name and two types are given
+		{
+			Type srcType(parse[2]);
+			Type tgtType(parse[3]);
+			symbolMan->createType(parse[2]);
+			symbolMan->createType(parse[3]);
+			predMan->create(parse[1], srcType, tgtType);
+		}
+		break;
 	case CommandLine::help:
 		show_help();
 		break;

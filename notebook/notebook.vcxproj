@@ -162,6 +162,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Point.h" />
     <ClInclude Include="Predicate.h" />
+    <ClInclude Include="PredicateManager.h" />
     <ClInclude Include="SymbolManager.h" />
     <ClInclude Include="Syntax.h" />
     <ClInclude Include="SyntaxBuilder.h" />
@@ -186,6 +187,7 @@
     </ClCompile>
     <ClCompile Include="Point.cpp" />
     <ClCompile Include="Predicate.cpp" />
+    <ClCompile Include="PredicateManager.cpp" />
     <ClCompile Include="Symbol.cpp" />
     <ClCompile Include="SymbolManager.cpp" />
     <ClCompile Include="Syntax.cpp" />

@@ -22,7 +22,8 @@ int main()
 {
 	NoteManager noteMan;
 	SymbolManager symMan;
-	CommandLine shell(&noteMan, &symMan);
+	PredicateManager predMan;
+	CommandLine shell(&noteMan, &symMan, &predMan);
 
 	shell.show_welcome();
 

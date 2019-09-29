@@ -36,6 +36,9 @@ Predicate::Predicate(string link_in, Variable &source_in, Variable &target_in, F
 void Predicate::show()
 {
 	outputForm.show();
+	cout << sourceVar.get_type().get_string() << " " << sourceVar.get_display() << endl;
+	cout << targetVar.get_type().get_string() << " " << targetVar.get_display() << endl;
+
 }
 
 Point Predicate::apply(Term &source_term, Term &target_term)

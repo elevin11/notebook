@@ -42,6 +42,7 @@ Variable::Variable()
 {
 }
 
+
 Variable::Variable(Type type_in, string disp_in)
 {
 	this->set_type(type_in);

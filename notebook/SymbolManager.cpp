@@ -40,14 +40,20 @@ void SymbolManager::createTerm(string typeName_in, string termName_in)
 
 void SymbolManager::show()
 {
+	cout << "Symbols: ";
 	for (auto it = symbolSet.begin(); it != symbolSet.end(); ++it)
 	{
 		cout << it->get_display() << " ";
 	}
-	cout << endl;
+	cout << endl << "Terms: ";
 	for (auto it = termSet.begin(); it != termSet.end(); ++it)
 	{
 		cout << it->get_type().get_string() << " " << it->get_display() << "; ";
+	}
+	cout << endl << "Types: ";
+	for (auto it = typeSet.begin(); it != typeSet.end(); ++it)
+	{
+		cout << it->get_string() << " ";
 	}
 	cout << endl;
 }
