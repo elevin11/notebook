@@ -18,8 +18,8 @@ public:
 	~Predicate();
 private:
 	Word * link;
-	Variable * source_var;
-	Variable * target_var;
-	Format output_form;
+	Variable * sourceVar;
+	Variable * targetVar;
+	Format outputForm;
 };
 

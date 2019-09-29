@@ -1,3 +1,4 @@
+
 #include "Format.h"
 
 
@@ -93,3 +94,4 @@ void Format::substitute(Variable * var_sub, Term * term_sub)
 		}
 	}
 }
+
